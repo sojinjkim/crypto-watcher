@@ -1,9 +1,12 @@
-const { Client, Intents } = require("discord.js");
+import dotenv from "dotenv";
+dotenv.config();
+
+import { Client, Intents } from "discord.js";
 const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
-const { Token } = require("./config.env");
+const BOT_TOKEN = process.env.BOT_TOKEN;
 
 client.once("ready", () => {
     console.log("CryptoWatcher is online!");
 });
 
-client.login(Token);
+client.login(BOT_TOKEN);
